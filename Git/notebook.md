@@ -58,6 +58,7 @@ git中文件的状态：
     git add                添加到暂存区（支持通配符）
     git commit             提交（仅提交暂存区中的文件）
     git log [--oneline]    查看提交记录
+    git ls-files           查看已被暂存的文件
 
 # 回退版本
 
@@ -147,4 +148,24 @@ P.S：忽略操作对已经添加进版本库中的文件无效，空文件夹�
 
 [常见语言的.gitignore文件模板](https://github.com/github/gitignore)
 
-# 
+# 远程仓库
+
+    git pull    从远程仓库拉取到本地
+    git push    从本地推送到远程仓库
+
+如果是本地新建的仓库，没有与远程仓库关联，则需要先关联;  
+如果一开始是clone的远程仓库，可以直接推拉。
+
+# 本地仓库和远程仓库关联
+
+    git remote add <shortname> <url>
+
+`<shortname>` 是在git本地指定的，用来为远程仓库设置的别名。
+
+    git remote -v
+
+这是为了查看远程仓库设定情况
+
+    git branch -M main               指定分支的名字为main
+    git push -u origin main          向origin的远程仓库推送main分支
+    git push -u origin master:main   把本地的master分支推送到远程main分支
