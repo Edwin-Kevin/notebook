@@ -184,3 +184,69 @@ P.S：忽略操作对已经添加进版本库中的文件无效，空文件夹�
     git branch -d <branch name>                 删除分支（未合并前不能删）
     git branch -D <branch name>                 强行删除
     
+# 合并冲突
+
+冲突情况：两个分支修改了同一个文件的同一行代码。
+
+解决冲突：在执行merge后，手工修改有冲突的文件，再重新提交。
+
+中止合并： 
+
+    git merge --abort
+
+# 回退和 rebase
+
+## rebase 变基
+
+也是用于合并不同分支的修改内容，区别在于分支上的所有commit会被移到被移入分支，执行结果是两条分支被 **拼接** 成一条直线，而非两条分支 **汇聚** 成直线（也就是merge的表现）。
+
+- 首先切换到要rebase的分支
+- 使用 `git rebase <rebase branch>` 将此分支rebase到目的分支。
+
+## 回退
+    git checkout -b <branch> <commit ID>   恢复到指定commit的状态
+
+
+## 选择哪一个？
+
+## Merge
+
+**优点：**
+
+不会破坏提交历史，方便回溯。
+
+**缺点：**
+
+分支图复杂，提交节点较多。
+
+## Rebase
+
+**优点：**
+
+不会形成额外的提交记录，比较直观干净。
+
+**缺点：**
+
+会改变提交历史，改变了分支的节点，应避免在共享分支使用。
+
+***大部分时间都以merge为主***
+
+# 分支管理和工作流模型
+
+## GitFlow 模型
+
+- main分支（主线/基线）
+只接受来自 hotfix 和 release 的合并请求，不允许直接push修改。
+- hotfix
+用于解决线上问题，修复完成后合回main分支。
+- release
+新功能发布，永久分支。
+- develop
+用于开发和测试。
+- feature
+用于特定功能开发，功能完成后合回develop分支，一般使用功能名命名分支。
+
+## GitHubFlow 模型
+
+![GitHubFlow](GitHubFlow.png)
+
