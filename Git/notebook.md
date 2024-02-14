@@ -166,6 +166,21 @@ P.S：忽略操作对已经添加进版本库中的文件无效，空文件夹�
 
 这是为了查看远程仓库设定情况
 
-    git branch -M main               指定分支的名字为main
-    git push -u origin main          向origin的远程仓库推送main分支
-    git push -u origin master:main   把本地的master分支推送到远程main分支
+    git branch -M main                              指定分支的名字为main
+    git push -u origin main                         向origin的远程仓库推送main分支
+    git push -u origin master:main                  把本地的master分支推送到远程main分支
+    git pull origin <remote branch>:<local branch>  
+    
+`git pull` 会拉取远程更改并自动合并，而 `git fetch` 只会拉取，不会自动合并。
+
+# 分支
+
+代码中的不同版本，可以独立存在，且有自己的提交记录。
+
+    git branch                                  查看当前仓库中的所有分支
+    git branch <branch name>                    创建新分支
+    git switch <branch name>                    切换分支
+    git merge <slave-branch> <main-branch>      合并分支
+    git branch -d <branch name>                 删除分支（未合并前不能删）
+    git branch -D <branch name>                 强行删除
+    
