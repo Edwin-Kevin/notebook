@@ -44,7 +44,7 @@ for 0 <= j < M: # 状态
 如果遇到的字符`c`和`pat[j]`不匹配的话，状态就要回退（或者原地不动），我们不妨称这种情况为**状态重启**。
 
 ## 代码实现（28）
-```
+```cpp
 class Solution {
 public:
     void getNext(int* next, const string &s){
